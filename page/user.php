@@ -328,26 +328,34 @@
                                     </button> -->
 
                                     <!-- Modal -->
-                                    <div class="modal fade" id="exampleModalLong" tabindex="-1" role="dialog"
-                                        aria-labelledby="exampleModalLongTitle" aria-hidden="true">
-                                        <div class="modal-dialog" role="document">
-                                            <div class="modal-content">
-                                                <div class="modal-header">
-                                                    <h5 class="modal-title" id="exampleModalLongTitle">Cancel Reservation</h5>
-                                                    <button type="button" class="close" data-dismiss="modal"
-                                                        aria-label="Close">
-                                                        <span aria-hidden="true">&times;</span>
-                                                    </button>
-                                                </div>
-                                                <div class="modal-body">
-                                                    <label for="exampleInputEmail1">Please explain,why you need to cancel this reservation (more than 10 characters)?</label>
-                                                    <input type="text" class="form-control"  placeholder="Please specify" min="10" required>
-                                                </div>
-                                                <div class="modal-footer">
-                                                    <button type="button" class="btn btn-secondary"
-                                                        data-dismiss="modal">Close</button>
-                                                    <button type="button" class="btn btn-primary">Save</button>
-                                                </div>
+                                    
+                                                <form class="form-detail" action="#" method="post" id="form">
+                                                        
+                                                        <input type="hidden" class="form-control" id="id" name="id" value="<?=$id?>">
+                                                        <div class="form-inline">
+                                                            
+                                                        </div>
+                                                        <div class="modal fade" id="exampleModalLong" tabindex="-1" role="dialog"
+                                                        aria-labelledby="exampleModalLongTitle" aria-hidden="true">
+                                                        <div class="modal-dialog" role="document">
+                                                            <div class="modal-content">
+                                                                <div class="modal-header">
+                                                                    <h5 class="modal-title" id="exampleModalLongTitle">Cancel Reservation</h5>
+                                                                    <button type="button" class="close" data-dismiss="modal"
+                                                                        aria-label="Close">
+                                                                        <span aria-hidden="true">&times;</span>
+                                                                    </button>
+                                                                </div>
+                                                                <div class="modal-body">
+                                                                    <label for="exampleInputEmail1">Please explain,why you need to cancel this reservation (more than 10 characters)?</label>
+                                                                    <input type="text" class="form-control"  placeholder="Please specify" min="10" required>
+                                                                </div>
+                                                                <div class="modal-footer">
+                                                                    <button type="button" class="btn btn-secondary"
+                                                                        data-dismiss="modal">Close</button>
+                                                                    <button type="submit" class="btn btn-primary">Save</button>
+                                                                </div>
+                                                    </form>
                                             </div>
                                         </div>
                                     </div>
@@ -477,6 +485,30 @@
     </div>
 </div>
  -->
+ <script>
+        $(document).ready(function () {
+            var form  = $("#form");
+            var id = $("#id").val();
+
+
+            form.submit(function (e) { 
+                deleteStudent(id)
+                function deleteStudent(id){
+                    if (confirm("คุณต้องการบันทึกหรือไม่")) {
+                    $.get("http://localhost/Hermes-master/hermesdb/api.php/del/"+id, {},
+                        function (data, textStatus, jqXHR) {
+                        window.location.href = "http://localhost/carproject/empHome.php";   
+                        // search();
+                        
+                        }
+                    );
+
+                    }
+                }
+            });
+        });
+
+    </script>
 </body>
 <!--   Core JS Files   -->
 <script src="../assets/js/core/jquery.3.2.1.min.js" type="text/javascript"></script>

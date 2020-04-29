@@ -1,16 +1,19 @@
 <?php
+
 use \Psr\Http\Message\ServerRequestInterface as Request;
 use \Psr\Http\Message\ResponseInterface as Response;
 
 require './api/vendor/autoload.php';
-$config=[
-    'settings'=>[
-        'displayErrorDetails'=>true,
-    "db" => [
-        "host" => "127.0.0.1",
-        "dbname" => "demo",
-        "user" => "root",
-        "pass" => "usbw"
+
+$config = [
+    'settings' => [
+        'displayErrorDetails' => true, // set to false in production
+        // Database connection settings
+        "db" => [
+            "host" => "127.0.0.1",
+            "dbname" => "hermes",
+            "user" => "root",
+            "pass" => "usbw"
         ],
     ],
 ];
@@ -20,48 +23,74 @@ $app = new \Slim\App($config);
 // DIC configuration
 $container = $app->getContainer();
 
+
 // PDO database library 
-$container ['db'] = function ($c) {
+$container['db'] = function ($c) {
     $settings = $c->get('settings')['db'];
     $pdo = new PDO(
-        "mysql:host=" . $settings['host'] . ";dbname=" . $settings['dbname'] . ";charset=UTF8",
-        $settings['user'], $settings['pass']);
+        "mysql:host=" . $settings['host'] . ";dbname=" . $settings['dbname'] . ";charset=utf8",
+        $settings['user'],
+        $settings['pass']
+    );
     $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
     $pdo->setAttribute(PDO::ATTR_DEFAULT_FETCH_MODE, PDO::FETCH_ASSOC);
+
     return $pdo;
 };
-$app->get('/getdb' , function (Request $request,Request $response,array $args){
-    $sql = "select re.resinfo_id,r.room_id,re.resinfo_first_name,re.resinfo_last_name,re.resinfo_telno,re.resinfo_email,r.room_name from reservation_info re
-    join book_log bl
-    on re.resinfo_id = bl.bl_reservation
-    join rooms r
-    on bl.bl_room = r.room_id
-    group by re.resinfo_id;";
+
+
+$app->get('/getdb', function (Request $request, Response $response, array $args) {
+
+    $sql = "select a.agency_name,r.resinfo_id,r.resinfo_first_name,r.resinfo_last_name, r.resinfo_email, r.resinfo_telno, r.resinfo_comments, 
+            rm.room_name, rt.rtype_eng, rs.rstatus_eng, rv.rview_eng, b.building_name from book_log bl
+            join reservation_info r
+            on bl.bl_reservation = r.resinfo_id
+            join agency a
+            on r.resinfo_agency = a.agency_id 
+            join rooms rm
+            on bl.bl_room = rm.room_id
+            join room_type rt 
+            on rm.room_type = rt.rtype_id
+            join room_status rs
+            on bl.bl_status = rs.rstatus_id
+            join room_view rv 
+            on rm.room_view = rv.rview_id
+            join building b
+            on rm.room_building = b.building_id ";
     $sth = $this->db->query($sql)->fetchAll(PDO::FETCH_ASSOC);
-    return $this->response->withJson($sth);
 
-
-
-});
-$app->get('/getdb/{id}' , function (Request $request,Request $response,array $args) {
-    $id = $args['id'];
-    $sql = "select re.resinfo_id,r.room_id,re.resinfo_first_name,re.resinfo_last_name,re.resinfo_telno,re.resinfo_email,r.room_name from reservation_info re
-    join book_log bl
-    on re.resinfo_id = bl.bl_reservation
-    join rooms r
-    on bl.bl_room = r.room_id
-    group by re.resinfo_id;";
-    $sth = $this->db->query($sql)->fetchAll(PDO::FETCH_ASSOC);
-    return $this->response->withJson($sth);
-
-
-
-});
-$app->get('/getdb/{idcheck}', function (Request $request, Response $response, array $args) {
-    $sql = "select username from users";
-    $sth = $this->db->query($sql)->fetchAll(PDO::FETCH_ASSOC);
     return $this->response->withJson($sth);
 });
+
+$app->get('/del/{resinfo_id}', function (Request $request, Response $response, array $args) {
+    $resinfo_id = $args['resinfo_id'];
+    $sql = "delete from reservation_info
+    where resinfo_id = $resinfo_id";
+    $sth = $this->db->query($sql);
+    //return $this->response->withJson($sth);
+});
+
+// $app->get('/getdb/{id}', function (Request $request, Response $response, array $args) {
+//     $id = $args['id'];
+//     $sql = "select a.agency_name, r.resinfo_first_name,r.resinfo_last_name, r.resinfo_email, r.resinfo_telno, r.resinfo_comments, 
+//             rm.room_name, rt.rtype_eng, rs.rstatus_eng, rv.rview_eng, b.building_name from book_log bl
+//             join reservation_info r
+//             on bl.bl_reservation = r.resinfo_id
+//             join agency a
+//             on r.resinfo_agency = a.agency_id 
+//             join rooms rm
+//             on bl.bl_room = rm.room_id
+//             join room_type rt 
+//             on rm.room_type = rt.rtype_id
+//             join room_status rs
+//             on bl.bl_status = rs.rstatus_id
+//             join room_view rv 
+//             on rm.room_view = rv.rview_id
+//             join building b
+//             on rm.room_building = b.building_id";
+//     $sth = $this->db->query($sql)->fetchAll(PDO::FETCH_ASSOC);
+
+//     return $this->response->withJson($sth);
+// });
+
 $app->run();
-?>
-
