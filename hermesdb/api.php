@@ -61,13 +61,21 @@ $app->get('/getdb', function (Request $request, Response $response, array $args)
 
     return $this->response->withJson($sth);
 });
+$app->get('/ShowReservation', function (Request $request, Response $response, array $args){
+    $id = $args['resinfo_id'];
+    $sql = "SELECT * FROM hermes.reservation_info ";
+    $sth = $this->db->query($sql)->fetchAll(PDO::FETCH_ASSOC);
+    return $this->response->withJson($sth);
+
+});
 
 $app->get('/del/{resinfo_id}', function (Request $request, Response $response, array $args) {
     $resinfo_id = $args['resinfo_id'];
-    $sql = "delete from reservation_info
-    where resinfo_id = $resinfo_id";
+    $sql = "update reservation_info
+    set resinfo_flag = 1
+    where resinfo_id = $resinfo_id ";
     $sth = $this->db->query($sql);
-    //return $this->response->withJson($sth);
+    // return $this->response->withJson($sth);
 });
 
 // $app->get('/getdb/{id}', function (Request $request, Response $response, array $args) {

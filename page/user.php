@@ -101,12 +101,6 @@
                             <p>Notifications</p>
                         </a>
                     </li>
-                    <li class="nav-item active active-pro">
-                        <a class="nav-link active" href="upgrade.html">
-                            <i class="nc-icon nc-alien-33"></i>
-                            <p>Upgrade to PRO</p>
-                        </a>
-                    </li>
                 </ul>
             </div>
         </div>
@@ -122,19 +116,19 @@
                         <span class="navbar-toggler-bar burger-lines"></span>
                     </button>
                     <div class="collapse navbar-collapse justify-content-end" id="navigation">
-                        <ul class="nav navbar-nav mr-auto">
+                        <!-- <ul class="nav navbar-nav mr-auto">
                             <li class="nav-item">
                                 <a href="#" class="nav-link" data-toggle="dropdown">
                                     <i class="nc-icon nc-palette"></i>
-                                    <span class="d-lg-none">Dashboard</span>
-                                </a>
+                                    <span class="d-lg-none">Dashboard</span> -->
+                                <!-- </a>
                             </li>
                             <li class="dropdown nav-item">
                                 <a href="#" class="dropdown-toggle nav-link" data-toggle="dropdown">
                                     <i class="nc-icon nc-planet"></i>
                                     <span class="notification">5</span>
-                                    <span class="d-lg-none">Notification</span>
-                                </a>
+                                    <span class="d-lg-none">Notification</span> -->
+                                <!-- </a>
                                 <ul class="dropdown-menu">
                                     <a class="dropdown-item" href="#">Notification 1</a>
                                     <a class="dropdown-item" href="#">Notification 2</a>
@@ -142,14 +136,14 @@
                                     <a class="dropdown-item" href="#">Notification 4</a>
                                     <a class="dropdown-item" href="#">Another notification</a>
                                 </ul>
-                            </li>
-                            <li class="nav-item">
+                            </li> -->
+                            <!-- <li class="nav-item">
                                 <a href="#" class="nav-link">
-                                    <i class="nc-icon nc-zoom-split"></i>
-                                    <span class="d-lg-block">&nbsp;Search</span>
-                                </a>
+                                    <i class="nc-icon nc-zoom-split"></i> --> -->
+                                    <!-- <span class="d-lg-block">&nbsp;Search</span> -->
+                                <!-- </a>
                             </li>
-                        </ul>
+                        </ul> -->
                         <ul class="navbar-nav ml-auto">
                             <li class="nav-item">
                                 <a class="nav-link" href="#pablo">
@@ -199,8 +193,8 @@
                                             <div class="col-md-4 pr-1">
                                                 <div class="form-group">
                                                     <label>Check In - chek Out(1 nights)</label>
-                                                    <input type="text" class="form-control" placeholder="Username"
-                                                        value="michael23">
+                                                    <input type="text" class="form-control" placeholder=""
+                                                        value="">
                                                 </div>
                                             </div>
                                             <div class="col-md-4 pl-1">
@@ -220,15 +214,15 @@
                                             <div class="col-md-4 pr-1">
                                                 <div class="form-group">
                                                     <label>First Name</label>
-                                                    <input type="text" class="form-control" placeholder="Company"
-                                                        value="Mike">
+                                                    <input type="text" class="form-control" placeholder="First Name"
+                                                        value="">
                                                 </div>
                                             </div>
                                             <div class="col-md-4 pl-1">
                                                 <div class="form-group">
                                                     <label>Last Name</label>
                                                     <input type="text" class="form-control" placeholder="Last Name"
-                                                        value="Andrew">
+                                                        value="">
                                                 </div>
                                             </div>
                                             <div class="col-md-4 pl-1">
@@ -243,8 +237,8 @@
                                             <div class="col-md-4">
                                                 <div class="form-group">
                                                     <label>Phone</label>
-                                                    <input type="number" class="form-control" placeholder="Home Address"
-                                                        value="Bld Mihail Kogalniceanu, nr. 8 Bl 1, Sc 1, Ap 09">
+                                                    <input type="number" class="form-control" placeholder="Phone"
+                                                        value="">
                                                 </div>
                                             </div>
                                             <div class="col-md-8">
@@ -252,7 +246,7 @@
                                                     <label>Notes</label>
                                                     <textarea rows="4" cols="80" class="form-control"
                                                         placeholder="Here can be your description"
-                                                        value="Mike"></textarea>
+                                                        value=""></textarea>
                                                 </div>
                                             </div>
                                         </div>
@@ -297,13 +291,13 @@
                                             <div class="col-md-5 pr-1 ">
                                                 <div class="form-group">
                                                     <label>First Name</label>
-                                                    <input type="text" class="form-control" placeholder="Company"
-                                                        value="Mike">
+                                                    <input type="text" class="form-control" placeholder="First Name"
+                                                        value="">
                                                 </div>
                                                 <div class="form-group">
                                                     <label>Last Name</label>
                                                     <input type="text" class="form-control" placeholder="Last Name"
-                                                        value="Andrew">
+                                                        value="">
                                                 </div>
                                                 <div class="form-group">
                                                     <label for="exampleInputEmail1">Email</label>
@@ -311,8 +305,8 @@
                                                 </div>
                                                 <div class="form-group">
                                                     <label>Phone</label>
-                                                    <input type="number" class="form-control" placeholder="Home Address"
-                                                        value="Bld Mihail Kogalniceanu, nr. 8 Bl 1, Sc 1, Ap 09">
+                                                    <input type="number" class="form-control" placeholder="Phone"
+                                                        value="">
                                                 </div>
 
                                             </div>

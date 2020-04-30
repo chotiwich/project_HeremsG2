@@ -269,8 +269,6 @@
                                         <li class="page-item"><a class="page-link" href="javascript:void(0);">1</a></li>
                                         <li class="page-item"><a class="page-link" href="javascript:void(0);">Next</a></li>
                                     </ul>
-
-
                                 </div>
                             </div>
                         </div>
