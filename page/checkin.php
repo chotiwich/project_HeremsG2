@@ -186,15 +186,14 @@
                                         <div class="card bg-primary text-white">
                                             <h3 class="card-title text-center mb-2">
                                                 <div class="d-flex flex-wrap justify-content-center mt-2">
-                                                    <a><span class="badge hours"></span></a> :
-                                                    <a><span class="badge min"></span></a> :
-                                                    <a><span class="badge sec"></span></a></br>
-                                                </div>
                                                 <div class="colordate">
                                                     <?php
-                                                    echo  date("d-m-Y");
-                                                    echo  date(" l");
+                                                    echo  date("F jS Y, ");
                                                     ?>
+                                                </div>
+                                                    <a><span class="badge hours"></span></a> :
+                                                    <a><span class="badge min"></span></a> :
+                                                    <a><span class="badge sec"></span></a>
                                                 </div>
                                             </h3>
                                         </div>
