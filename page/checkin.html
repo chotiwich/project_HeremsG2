@@ -1,17 +1,4 @@
-<!--
-=========================================================
- Light Bootstrap Dashboard - v2.0.1
-=========================================================
 
- Product Page: https://www.creative-tim.com/product/light-bootstrap-dashboard
- Copyright 2019 Creative Tim (https://www.creative-tim.com)
- Licensed under MIT (https://github.com/creativetimofficial/light-bootstrap-dashboard/blob/master/LICENSE)
-
- Coded by Creative Tim
-
-=========================================================
-
- The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.  -->
  <!DOCTYPE html>
  <html lang="en">
  
@@ -32,6 +19,11 @@
      <link href="../assets/css/demo.css" rel="stylesheet" />
      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.0.0-beta.2/css/bootstrap.min.css" />
      <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+     <style>
+         .colordate {
+             color: white;
+         }
+     </style>
  </head>
  
  
@@ -39,10 +31,10 @@
      <div class="wrapper">
          <div class="sidebar" data-image="../assets/img/sidebar-5.jpg">
              <!--
-         Tip 1: You can change the color of the sidebar using: data-color="purple | blue | green | orange | red"
- 
-         Tip 2: you can also add an image using data-image tag
-     -->
+          Tip 1: You can change the color of the sidebar using: data-color="purple | blue | green | orange | red"
+  
+          Tip 2: you can also add an image using data-image tag
+      -->
              <div class="sidebar-wrapper">
                  <div class="logo">
                      <a href="http://www.creative-tim.com" class="simple-text">
@@ -177,46 +169,46 @@
                                  <div class="card-header ">
                                      <h4 class="card-title">Check In</h4>
                                      <hr>
-                                     <div class="col-md-6">
-                                            <div class="card bg-primary text-white">
-                                                <h3 class="card-title text-center">
-                                                    <div class="d-flex flex-wrap justify-content-center mt-2">
-                                                    <a><span class="badge hours"></span></a> :
-                                                    <a><span class="badge min"></span></a> :
-                                                    <a><span class="badge sec"></span></a>
-                                                    </div>
-                                                </h3>
-                                            </div>
-                                        </div>
+                                     <div class="col-md-12">
+                                         <div class="card bg-primary text-white">
+                                             <h3 class="card-title text-center mb-2">
+                                                 <div class="d-flex flex-wrap justify-content-center mt-2">
+                                                 <div class="colordate">
+                                                     <?php
+                                                     echo  date("F jS Y, ");
+                                                     ?>
+                                                 </div>
+                                                     <a><span class="badge hours"></span></a> :
+                                                     <a><span class="badge min"></span></a> :
+                                                     <a><span class="badge sec"></span></a>
+                                                 </div>
+                                             </h3>
+                                         </div>
+                                     </div>
                                      <div class="row">
-                                     <div class="col-md-6">
-                                        <label class="mr-sm-2" for="inlineFormCustomSelect">Show</label>
-                                            <select class="custom-select mb-2 mr-sm-2 mb-sm-0" id="inlineFormCustomSelect">
-                                                <option selected>10</option>
-                                                <option value="1">20</option>
-                                                <option value="2">50</option>
-                                                <option value="3">100</option>
-                                            </select>  
-                                        <label class="mr-sm-2" for="inlineFormCustomSelect">entries</label>
-                                        
-                                        
-                                    </div>
-                                    <div class="col-md-4">
-                                        <div class="input-group mb-6">
-                                            <label for="example-text-input" class="col-sm-3 col-form-label" >Search : </label>
-                                            <input type="text" class="form-control" placeholder="Search" value="Chanankorn">
-                                    
-                                          </div>
-          
-                            
-
-                                    </div>
-
-
-                                </div>
+                                         <div class="col-md-6">
+                                             <label class="mr-sm-2" for="inlineFormCustomSelect">Show</label>
+                                             <select class="custom-select mb-2 mr-sm-2 mb-sm-0" id="inlineFormCustomSelect">
+                                                 <option selected>10</option>
+                                                 <option value="1">20</option>
+                                                 <option value="2">50</option>
+                                                 <option value="3">100</option>
+                                             </select>
+                                             <label class="mr-sm-2" for="inlineFormCustomSelect">entries</label>
+ 
+ 
+                                         </div>
+                                         <div class="col-md-4">
+                                             <div class="input-group mb-6">
+                                                 <label for="example-text-input" class="col-sm-3 col-form-label">Search: </label>
+                                                 <input type="text" class="form-control" placeholder="Search"  id="keyword" value="">
+                                                 <button type="button" class="btn btn-round btn-fill btn-info" id="btnSearch">Search</button></td>
+                                             </div>
+                                         </div>
+                                     </div>
                                  </div>
                                  <div class="card-body table-full-width table-responsive">
-                                    <table id="example" class="table pmd-table table-hover table-striped display dt-responsive nowrap" cellspacing="0" width="100%">
+                                     <table id="example" class="table pmd-table table-hover table-striped display dt-responsive nowrap" cellspacing="0" width="100%">
                                          <thead>
                                              <th> </th>
                                              <th>Guest name</th>
@@ -226,45 +218,37 @@
                                              <th>Agency</th>
                                              <th>Book Dates</th>
                                          </thead>
-                                         <tbody>
+                                         <tbody id="keyword">
                                              <tr>
                                                  <td><button type="button" class="btn btn-round btn-fill btn-info">Info</button></td>
-                                                 <td>Chanankorn  Jandaeng</td>
+                                                 <td>Chanankorn Jandaeng</td>
                                                  <td>R101</td>
                                                  <td>Walk in</td>
                                                  <td>087-887519</td>
                                                  <td>Chanankorn</td>
                                                  <td>2018-09-09 07:31:30</td>
                                              </tr>
-                                             <tr>
-                                                <td><button type="button" class="btn btn-round btn-fill btn-info">info</button></td>
-                                                <td>Chanankorn  Jandaeng</td>
-                                                <td>R101</td>
-                                                <td>Walk in</td>
-                                                <td>087-887519</td>
-                                                <td>Chanankorn</td>
-                                                <td>2018-09-09 07:31:30</td>
-                                            </tr>
+                                            
                                          </tbody>
                                      </table>
                                      <div class="row">
-                                        <div class="col-md-6">
-                                            <label class="mr-sm-2" for="inlineFormCustomSelect">Showing 1 to 1 entries</label>
-                                            
-                                            
-                                        </div>
-                                    </div>
-                                    <ul class="pagination justify-content-center">
-                                        <li class="page-item"><a class="page-link" href="javascript:void(0);">Previous</a></li>
-                                        <li class="page-item"><a class="page-link" href="javascript:void(0);">1</a></li>
-                                        <li class="page-item"><a class="page-link" href="javascript:void(0);">Next</a></li>
-                                      </ul>
-                                        
-                                        
+                                         <div class="col-md-6">
+                                             <label class="mr-sm-2" for="inlineFormCustomSelect">Showing 1 to 1 entries</label>
+ 
+ 
+                                         </div>
+                                     </div>
+                                     <ul class="pagination justify-content-center">
+                                         <li class="page-item"><a class="page-link" href="javascript:void(0);">Previous</a></li>
+                                         <li class="page-item"><a class="page-link" href="javascript:void(0);">1</a></li>
+                                         <li class="page-item"><a class="page-link" href="javascript:void(0);">Next</a></li>
+                                     </ul>
+ 
+ 
                                  </div>
                              </div>
                          </div>
-                         
+ 
                      </div>
                  </div>
              </div>
@@ -305,25 +289,25 @@
              </footer>
          </div>
      </div>
-     
-  
+ 
+ 
  </body>
  <script>
-        $(document).ready(function() {
-        setInterval( function() {
-        var hours = new Date().getHours();
-        $(".hours").html(( hours < 10 ? "0" : "" ) + hours);
-        }, 1000);
-        setInterval( function() {
-        var minutes = new Date().getMinutes();
-        $(".min").html(( minutes < 10 ? "0" : "" ) + minutes);
-        },1000);
-        setInterval( function() {
-        var seconds = new Date().getSeconds();
-        $(".sec").html(( seconds < 10 ? "0" : "" ) + seconds);
-        },1000);
-        });
-</script>
+     $(document).ready(function() {
+         setInterval(function() {
+             var hours = new Date().getHours();
+             $(".hours").html((hours < 10 ? "0" : "") + hours);
+         }, 1000);
+         setInterval(function() {
+             var minutes = new Date().getMinutes();
+             $(".min").html((minutes < 10 ? "0" : "") + minutes);
+         }, 1000);
+         setInterval(function() {
+             var seconds = new Date().getSeconds();
+             $(".sec").html((seconds < 10 ? "0" : "") + seconds);
+         }, 1000);
+     });
+ </script>
  <!--   Core JS Files   -->
  <script src="../assets/js/core/jquery.3.2.1.min.js" type="text/javascript"></script>
  <script src="../assets/js/core/popper.min.js" type="text/javascript"></script>
@@ -341,6 +325,6 @@
  <!-- Light Bootstrap Dashboard DEMO methods, don't include it in your project! -->
  <script src="../assets/js/demo.js"></script>
  
-
-
+ 
+ 
  </html>
